@@ -1,0 +1,4 @@
+post_install() {
+  systemctl enable sshd haveged usb-tethering systemd-networkd systemd-resolved systemd-timesyncd qrtr-ns tqftpserv rmtfs pd-mapper first_time_setup NetworkManager bluetooth
+  sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+}
