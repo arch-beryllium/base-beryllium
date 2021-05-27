@@ -54,7 +54,7 @@ package_base-beryllium() {
   install -Dm644 "$srcdir"/disable-random-mac.conf "$pkgdir"/etc/NetworkManager/conf.d/disable-random-mac.conf
   install -Dm644 "$srcdir"/ignore-power-key.conf "$pkgdir"/etc/systemd/logind.conf.d/ignore-power-key.conf
   install -Dm644 "$srcdir"/locale.conf "$pkgdir"/etc/locale.conf
-  install -Dm755 "$srcdir"/first_time_setup.service "$pkgdir"/usr/lib/systemd/system/first_time_setup.service
+  install -Dm644 "$srcdir"/first_time_setup.service "$pkgdir"/usr/lib/systemd/system/first_time_setup.service
   install -Dm755 "$srcdir"/first_time_setup.sh "$pkgdir"/opt/first_time_setup.sh
   install -Dm755 "$srcdir"/resizerootfs-hooks.sh "$pkgdir"/usr/lib/initcpio/hooks/resizerootfs
   install -Dm755 "$srcdir"/resizerootfs-install.sh "$pkgdir"/usr/lib/initcpio/install/resizerootfs
