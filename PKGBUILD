@@ -1,6 +1,6 @@
 pkgname=base-beryllium
 pkgver=0.2
-pkgrel=1
+pkgrel=2
 arch=(aarch64)
 license=(Unlicense)
 source=('ignore-power-key.conf'
@@ -25,7 +25,7 @@ sha256sums=('784c1237e8c553fd9717e4caf8b996abb4631348b27e3425bb8e39bd7e617476'
 package_base-beryllium() {
   install=base-beryllium.install
   depends=(
-    alsa-ucm-beryllium
+    alsa-ucm-conf
     alsa-utils
     base-beryllium
     bluez
