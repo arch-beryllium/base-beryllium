@@ -1,6 +1,6 @@
 pkgname=base-beryllium
-pkgver=0.2
-pkgrel=2
+pkgver=0.3
+pkgrel=1
 arch=(aarch64)
 license=(Unlicense)
 source=('ignore-power-key.conf'
@@ -37,6 +37,7 @@ package_base-beryllium() {
     iw
     linux-beryllium
     linux-beryllium-headers
+    mkinitcpio
     networkmanager
     openssh
     pd-mapper-git
