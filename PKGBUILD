@@ -1,9 +1,11 @@
 pkgname=base-beryllium
-pkgver=0.4
+pkgver=0.5
 pkgrel=1
 arch=(aarch64)
 license=(Unlicense)
-source=('ignore-power-key.conf'
+source=('mkinitcpio.conf'
+        '50-mkinitcpio-overwrite.hook'
+        'ignore-power-key.conf'
         'locale.conf'
         'first_time_setup.service'
         'first_time_setup.sh'
@@ -12,7 +14,9 @@ source=('ignore-power-key.conf'
         'rootfsdetect-hooks.sh'
         'rootfsdetect-install.sh'
         'random-mac.conf')
-sha256sums=('784c1237e8c553fd9717e4caf8b996abb4631348b27e3425bb8e39bd7e617476'
+sha256sums=('da1652b0adae101e2dd4e60c2004e476c8ccd43b0117ded7862aaf6b440e03af'
+            '52115eda524f5670c2f3f59d5f5c132d77d180dcf698aef659a6066c8da5d2f6'
+            '784c1237e8c553fd9717e4caf8b996abb4631348b27e3425bb8e39bd7e617476'
             '151b67da4450eb4f81143835f2342a4302284a0f336c4e13bb9de69009611c9b'
             'f5da6ca27d1b6d9d21f603be7831baf2524a2549a11de880829c094ef6d7f278'
             '269d8668f0f0e14d0044f84aa64696d28d27172cc869a49f5f0cb94d4c86e058'
@@ -51,6 +55,8 @@ package_base-beryllium() {
     wpa_supplicant
     xdg-user-dirs
   )
+  install -Dm755 "$srcdir"/mkinitcpio.conf "$pkgdir"/etc/base-beryllium/mkinitcpio.conf
+  install -Dm644 "$srcdir"/50-mkinitcpio-overwrite.hook "$pkgdir"/usr/share/libalpm/hooks/50-mkinitcpio-overwrite.hook
   install -Dm644 "$srcdir"/random-mac.conf "$pkgdir"/etc/NetworkManager/conf.d/random-mac.conf
   install -Dm644 "$srcdir"/ignore-power-key.conf "$pkgdir"/etc/systemd/logind.conf.d/ignore-power-key.conf
   install -Dm644 "$srcdir"/locale.conf "$pkgdir"/etc/locale.conf
