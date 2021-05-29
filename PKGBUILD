@@ -1,6 +1,6 @@
 pkgname=base-beryllium
 pkgver=0.3
-pkgrel=1
+pkgrel=2
 arch=(aarch64)
 license=(Unlicense)
 source=('ignore-power-key.conf'
@@ -11,7 +11,7 @@ source=('ignore-power-key.conf'
         'resizerootfs-install.sh'
         'rootfsdetect-hooks.sh'
         'rootfsdetect-install.sh'
-        'disable-random-mac.conf')
+        'random-mac.conf')
 sha256sums=('784c1237e8c553fd9717e4caf8b996abb4631348b27e3425bb8e39bd7e617476'
             '151b67da4450eb4f81143835f2342a4302284a0f336c4e13bb9de69009611c9b'
             'f5da6ca27d1b6d9d21f603be7831baf2524a2549a11de880829c094ef6d7f278'
@@ -52,7 +52,7 @@ package_base-beryllium() {
     wpa_supplicant
     xdg-user-dirs
   )
-  install -Dm644 "$srcdir"/disable-random-mac.conf "$pkgdir"/etc/NetworkManager/conf.d/disable-random-mac.conf
+  install -Dm644 "$srcdir"/random-mac.conf "$pkgdir"/etc/NetworkManager/conf.d/random-mac.conf
   install -Dm644 "$srcdir"/ignore-power-key.conf "$pkgdir"/etc/systemd/logind.conf.d/ignore-power-key.conf
   install -Dm644 "$srcdir"/locale.conf "$pkgdir"/etc/locale.conf
   install -Dm644 "$srcdir"/first_time_setup.service "$pkgdir"/usr/lib/systemd/system/first_time_setup.service
