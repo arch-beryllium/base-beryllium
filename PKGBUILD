@@ -1,5 +1,5 @@
 pkgname=base-beryllium
-pkgver=0.6
+pkgver=0.7
 pkgrel=1
 arch=(aarch64)
 license=(Unlicense)
@@ -43,6 +43,7 @@ package_base-beryllium() {
     iw
     linux-beryllium
     linux-beryllium-headers
+    net-tools
     networkmanager
     openssh
     pd-mapper-git
